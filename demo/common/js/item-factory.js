@@ -26,6 +26,7 @@ var ItemFactory = (function () {
       'rgba(195,123,177,.5)',
       'rgba(125,205,244,.5)'
     ]
+    // ~是按位取反运算，~~的作用是去掉小数部分
     return colors[~~(Math.random() * colors.length)]
   }
 

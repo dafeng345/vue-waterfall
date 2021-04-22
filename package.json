@@ -37,5 +37,8 @@
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
     "webpack": "^1.12.13"
+  },
+  "dependencies": {
+    "vue-waterfall": "^1.0.6"
   }
 }

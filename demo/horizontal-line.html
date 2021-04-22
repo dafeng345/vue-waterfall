@@ -15,6 +15,7 @@
     </style>
   </head>
   <body>
+    <!-- 当items改变时，触发自定义reflowed事件 -->
     <div id="app">
       <waterfall
         :line="line"
@@ -58,6 +59,7 @@
           addItems: function () {
             if (!this.isBusy && this.items.length < 500) {
               this.isBusy = true
+              // this指向this.items.push==>this.items,添加50个元素。
               this.items.push.apply(this.items, ItemFactory.get(50))
             }
           },
@@ -80,6 +82,7 @@
       window.addEventListener('scroll', function () {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
+          // 入口
           app.addItems()
         }
       })

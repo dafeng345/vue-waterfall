@@ -20,6 +20,7 @@ export default {
     isShow: false
   }),
   props: {
+    // 传值：父waterfall传子
     width: {
       required: true,
       validator: (val) => val >= 0
@@ -37,8 +38,10 @@ export default {
   },
   methods: {
     notify () {
+      // this.$parent==waterfalll组件，在父组件中on监听  1-2
       this.$parent.$emit('reflow', this)
     },
+    // 获得子组件的信息
     getMeta () {
       return {
         vm: this,
@@ -63,9 +66,11 @@ export default {
     ), this.notify)
   },
   mounted () {
+    // 只监听一次事件
     this.$parent.$once('reflowed', () => {
       this.isShow = true
     })
+    // 程序入口 1-1
     this.notify()
   },
   destroyed () {
